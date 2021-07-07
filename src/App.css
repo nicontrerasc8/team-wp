@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&family=Redressed&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+body{font-family: 'Alegreya Sans', sans-serif;}
+nav{
+  width: 90vw;
+  height: 12vh;
+  padding: 0 5vw;
+  display: flex;
+  grid-gap: 1vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: #121449;
+}
+nav h2{
+  font-size: clamp(28px, calc(2vh + 3vw),calc(4vh+5vw));
+  color: white;
+}
+nav img{
+  height: 10vh;
+  width: 10vh;
+}
+body{
+  background-color: #104885;
+}
+.Home-init{
+  padding: 3vh 0;
+}
+.hero-wrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-image{
+  width: clamp(320px, 50vw, 70vw);
+  border-radius: 20px;
+  transition: 1s;
+  border: 5px solid rgb(200,200,200);
+  height: clamp(400px, calc(35vh + 15vw), 50vw);
+}
+h1{
+  text-align: center;
+  padding: 0 0 3vh 0;
+  font-size: clamp(35px, calc(3vh + 3vw),calc(5vh+5vw));
+  color: white;
+  font-weight: 500;
+}
+.slide{
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+.slide.active{
+  opacity: 1;
+  transition: 2s ease;
+}
+.btn-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  grid-gap: 20px;
+}
+.btn{
+  background-color: #121449;
+  border: 2px solid rgb(230,230,230);
+  font-size: 45px;
+  color: rgb(200,200,200);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.btn i{
+  position: relative;
+  top: 3px;
+}
