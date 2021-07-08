@@ -4,14 +4,18 @@
   margin: 0;
   overflow-x: hidden;
 }
+div{
+  background-size: 100% 100%;
+}
 body{font-family: 'Alegreya Sans', sans-serif;}
 nav{
   width: 90vw;
   height: 12vh;
   padding: 0 5vw;
+  z-index: 10;
   display: flex;
   grid-gap: 1vw;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   align-items: center;
@@ -30,6 +34,7 @@ body{
   background-color: #104885;
 }
 .Home-init{
+  margin-top: 12vh;
   padding: 3vh 0;
 }
 .hero-wrapper{
@@ -39,7 +44,7 @@ body{
   justify-content: center;
 }
 .hero-image{
-  width: clamp(320px, 50vw, 70vw);
+  width: clamp(330px, 55vw, 70vw);
   border-radius: 20px;
   transition: 1s;
   border: 5px solid rgb(200,200,200);
@@ -48,7 +53,7 @@ body{
 h1{
   text-align: center;
   padding: 0 0 3vh 0;
-  font-size: clamp(35px, calc(3vh + 3vw),calc(5vh+5vw));
+  font-size: calc(4vh + 2vw + 15px);
   color: white;
   font-weight: 500;
 }
@@ -79,4 +84,57 @@ h1{
 .btn i{
   position: relative;
   top: 3px;
+}
+.videosDiv{
+  padding: 0px 5vw 30px 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 3vh;
+}
+.videoFrame{
+  border: 5px solid #6392c3;
+  background-color: #6392c3;
+  text-align: center;
+  border-radius: 20px;
+}
+.videoFrame h2{
+  padding: 5px;
+  font-size: calc(2vh + 1vw + 10px);
+  color: #f3f3ff;
+}
+iframe{
+  width: clamp(320px, 60vw, 60vw);
+  height: 60vh;
+  border-radius: 20px;
+}
+.img-container{
+  padding: 30px 5vw;
+  display: flex;
+  width: 90vw;
+  grid-gap: calc(2vw);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.img-container img{
+  height: calc(30vh + 100px);
+  width: clamp(320px, 30%, 30%);
+  border-radius: 10px;
+  border: 5px solid #6392c3;
+}
+.styled-h2{
+  color: white;
+  padding: 0 5vw 15px 5vw;
+  text-align: center;
+}
+.btn-mnCaptions{
+  text-align: center;
+  background-color: #121449;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid rgb(200,200,200);
+  color: white;
+  padding: 10px;
+  font-size: 20px;
 }
