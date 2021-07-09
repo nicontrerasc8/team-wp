@@ -7,6 +7,16 @@ const IFrameData = [
         src: "https://www.youtube.com/embed/28FS3yHEzAU",
         title: "Partido 19/06/2021",
     },
+    {
+        link: "https://youtu.be/dGPiqZuFx24",
+        src:"https://www.youtube.com/embed/dGPiqZuFx24",
+        title:"Final open 2019"
+    },
+    {
+        link: "https://youtu.be/0y77-WNdYzs",
+        src:"https://www.youtube.com/embed/0y77-WNdYzs",
+        title: "Waterpolo playa 2020",
+    }
 ]
 
 const IFrame = ({src}) => {
@@ -25,8 +35,8 @@ const index = () => {
            <div className="videosDiv">
            {IFrameData.map((param, idx) => {
                return(
-                <article className="videoFrame">
-                    <IFrame key={idx} src={param.src}/>
+                <article key={idx} className="videoFrame">
+                    <IFrame src={param.src}/>
                     <h2>{param.title}</h2>
                 </article>
             ) 
