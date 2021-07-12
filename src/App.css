@@ -5,6 +5,16 @@
   overflow-x: hidden;
   outline: none;
 }
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+  background: #121449;
+}
+::-webkit-scrollbar-thumb {
+  background: #1457a0;
+  border: 2px solid #a6a6cfb4;
+}
 div{
   background-size: 100% 100%;
 }
