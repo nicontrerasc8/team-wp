@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Slider from '../../Components/ImageSlider'
 import img1 from "../../Slider-Images/img-1.png"
 import img2 from "../../Slider-Images/img-2.png"
@@ -21,77 +21,67 @@ import Lonco from "../../img/fotos/lonco.jpeg"
 import Pipe from "../../img/fotos/pipe.jpeg"
 import tapada from "../../img/fotos/tapada.jpeg"
 import Villar from "../../img/fotos/villar.jpeg"
+import { db } from '../../firebase'
+import LoadingContainer from '../../LoadingContainer'
 
-const SliderData = [
-    {
-        image: img1,
-    },
-    {
-        image: img2,
-    },
-    {
-        image: img3,
-    },
-    
-    {
-        image: Chicas,
-    },
-    {
-        image: img4,
-    },
-    {
-        image: img5,
-    },
-    {
-        image: img6,
-    },
-]
-const FotoData = [
-    {
-        image: German,
-    },
-    {
-        image: Julio1,
-    },
-    {
-        image: Lonco
-    },
-    {
-        image: Villar,
-    },
-    {
-        image: Roco2,
-    },
-    {
-        image: Yoni,
-    },
-    {
-        image: Julio2,
-    },
-    {
-        image: Roco1,
-    },
-    {
-        image: Pipe,
-    },
-    {
-        image: tapada,
-    },
-    {
-        image: Bolo,
-    },
 
-]
 
-const index = () => {
+const Index = () => {
+    const [SliderData, setSliderData] = useState([])
+    const [Val1, setVal1] = useState(true)
+    const [Val2, setVal2] = useState(true)
+    const [Val3, setVal3] = useState(true)
+    const [FotoData, setFotoData] = useState([])
+    const [videoData, setVideoData] = useState([])
+    const [LoadingSlider, setLoadingSlider] = useState(true)
+
+    const SetData = () => {
+        console.log("render")
+        const NewsCollection = db.collection("carrusel")
+        NewsCollection.get().then((response) => {
+            const NewsDB = response.docs.map(element => {
+                const id = element.id;
+                return {...element.data(), id:id }
+            })
+            setSliderData(NewsDB)
+            setVal1(false)
+        })
+        const IFrameData = db.collection("videos")
+        IFrameData.get().then((response) => {
+            const FrameDB = response.docs.map(element => {
+                const id = element.id;
+                return {...element.data(), id:id }
+            })
+            setVideoData(FrameDB)
+            setVal2(false)
+        })
+        const FData = db.collection("img")
+        FData.get().then((response) => {
+            const IMGdb = response.docs.map(element => {
+                const id = element.id;
+                return {...element.data(), id:id}
+            })
+            setFotoData(IMGdb)
+            setVal3(false)
+            console.log(FotoData)
+        })
+    }
+    useEffect(() => {
+        SetData()
+    }, [])
+
     return <>
-        <div className="Home-init" style={{backgroundImage: `url(${BackGround})` }}>
-            <h1>Somos el equipo de waterpolo del CRL</h1>
-            <Slider slides={SliderData}/>
-        </div>
-        <Video/>
-        <Fotos data={FotoData}/>
+       {
+           (Val1 || Val2 || Val3) ? <LoadingContainer/> : <>
+           <div className="Home-init" style={{backgroundImage: `url(${BackGround})` }}>
+           <h1>Somos el equipo de waterpolo del CRL</h1>
+           <Slider slides={SliderData}/>
+       </div>
+       <Video videoData={videoData}/>
+       <Fotos data={FotoData}/>
+       </>
+       }
     </>
 }
 
-export default index
+export default Index

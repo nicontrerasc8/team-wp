@@ -12,7 +12,7 @@ const Index = ({data}) => {
            <h1>Fotos</h1>
            <div className="img-container">
            {data.map((data, idx) => {
-               return <img key={idx} data-aos="fade-right" className="img" src={data.image}/>
+               return <img key={idx} data-aos="fade-right" className="img" src={data.url}/>
            })}
            </div>
            <h2 className="styled-h2">Fotos tomadas por: MN Captions</h2>

@@ -1,43 +1,26 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
+import { db } from '../../firebase'
 import Back from "../../img/back.png"
-
-const IFrameData = [
-    {
-        link: "https://youtu.be/28FS3yHEzAU",
-        src: "https://www.youtube.com/embed/28FS3yHEzAU",
-        title: "Partido 19/06/2021",
-    },
-    {
-        link: "https://youtu.be/dGPiqZuFx24",
-        src:"https://www.youtube.com/embed/dGPiqZuFx24",
-        title:"Final open 2019"
-    },
-    {
-        link: "https://youtu.be/0y77-WNdYzs",
-        src:"https://www.youtube.com/embed/0y77-WNdYzs",
-        title: "Waterpolo playa 2020",
-    }
-]
 
 const IFrame = ({src}) => {
     return <iframe src={src} 
     title="YouTube video player" 
-    frameborder="0" 
+    frameBorder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
-    picture-in-picture" allowfullscreen>
+    picture-in-picture" allowFullScreen>
     </iframe>
 }
 
-const index = () => {
+const Index = ({videoData}) => {
     return (
         <div style={{backgroundImage: `url(${Back})`}}>
             <h1 style={{marginTop:"50px"}}>Videos</h1>
            <div className="videosDiv">
-           {IFrameData.map((param, idx) => {
+           {videoData.map((param, idx) => {
                return(
                 <article key={idx} className="videoFrame">
                     <IFrame src={param.src}/>
-                    <h2>{param.title}</h2>
+                    <h2>{param.titulo}</h2>
                 </article>
             ) 
             })}
@@ -46,4 +29,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index
