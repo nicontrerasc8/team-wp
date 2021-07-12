@@ -32,6 +32,7 @@ const Index = () => {
     const [Val2, setVal2] = useState(true)
     const [Val3, setVal3] = useState(true)
     const [FotoData, setFotoData] = useState([])
+    const [Loading, setLoading] = useState(true)
     const [videoData, setVideoData] = useState([])
     const [LoadingSlider, setLoadingSlider] = useState(true)
 
@@ -44,7 +45,9 @@ const Index = () => {
                 return {...element.data(), id:id }
             })
             setSliderData(NewsDB)
-            setVal1(false)
+            setTimeout(() => {
+                setVal1(false)
+            }, 3000);
         })
         const IFrameData = db.collection("videos")
         IFrameData.get().then((response) => {
@@ -53,7 +56,9 @@ const Index = () => {
                 return {...element.data(), id:id }
             })
             setVideoData(FrameDB)
-            setVal2(false)
+            setTimeout(() => {
+                setVal2(false)
+            }, 3000);
         })
         const FData = db.collection("img")
         FData.get().then((response) => {
@@ -62,14 +67,14 @@ const Index = () => {
                 return {...element.data(), id:id}
             })
             setFotoData(IMGdb)
-            setVal3(false)
+            setTimeout(() => {
+                setVal3(false)
+            }, 3000);
             console.log(FotoData)
         })
     }
     useEffect(() => {
-        setTimeout(() => {
-            SetData()
-        }, 5000);
+        SetData()
     }, [])
 
     return <>
