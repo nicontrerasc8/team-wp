@@ -67,7 +67,9 @@ const Index = () => {
         })
     }
     useEffect(() => {
-        SetData()
+        setTimeout(() => {
+            SetData()
+        }, 5000);
     }, [])
 
     return <>
