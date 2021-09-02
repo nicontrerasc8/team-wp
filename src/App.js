@@ -7,6 +7,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Admin from "./Admin"
 
 function App() {
+  console.log("He hecho la actualización")
   return (
     <Router>
       <NavBar/>

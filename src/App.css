@@ -5,6 +5,10 @@
   overflow-x: hidden;
   outline: none;
 }
+.logo{
+  font-size: clamp(28px, calc(2vh + 3vw),calc(4vh+3vw));
+  color: white;
+}
 ::-webkit-scrollbar {
   width: 1rem;
 }

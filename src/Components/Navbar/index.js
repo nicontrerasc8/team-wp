@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <nav>
             <img src={Logo}/>
-            <h2>Team Waterpolo</h2>
+            <h5 className="logo">Team Waterpolo</h5>
         </nav>
     )
 }
